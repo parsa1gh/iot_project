@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Access Forbidden - 403</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #333;
+        }
+
+        .forbidden-container {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 500px;
+            width: 90%;
+        }
+
+        .error-icon {
+            font-size: 5rem;
+            margin-bottom: 20px;
+            color: #ff4757;
+        }
+
+        .error-code {
+            font-size: 4rem;
+            font-weight: bold;
+            color: #ff4757;
+            margin-bottom: 10px;
+        }
+
+        .error-title {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: #2f3542;
+        }
+
+        .error-message {
+            color: #747d8c;
+            margin-bottom: 30px;
+            line-height: 1.6;
+            font-size: 1.1rem;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: #3742fa;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #2f36d4;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: #f1f2f6;
+            color: #2f3542;
+        }
+
+        .btn-secondary:hover {
+            background: #dfe4ea;
+            transform: translateY(-2px);
+        }
+
+        .security-info {
+            margin-top: 25px;
+            padding: 15px;
+            background: #fff9e6;
+            border-radius: 8px;
+            border-left: 4px solid #ffa502;
+            text-align: left;
+        }
+
+        .security-info h4 {
+            color: #e67e22;
+            margin-bottom: 8px;
+        }
+
+        .security-info p {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .animated-lock {
+            animation: shake 2s ease-in-out infinite;
+        }
+
+        @keyframes shake {
+
+            0%,
+            100% {
+                transform: rotate(0deg);
+            }
+
+            25% {
+                transform: rotate(-5deg);
+            }
+
+            75% {
+                transform: rotate(5deg);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .forbidden-container {
+                padding: 30px 20px;
+            }
+
+            .error-code {
+                font-size: 3rem;
+            }
+
+            .error-title {
+                font-size: 1.5rem;
+            }
+
+            .action-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="forbidden-container">
+        <div class="error-icon animated-lock">🔒</div>
+        <div class="error-code">403</div>
+        <h1 class="error-title">Access Forbidden</h1>
+
+        <p class="error-message">
+            Sorry! You don't have permission to access this page.
+            This may be due to access level restrictions or security issues.
+        </p>
+
+        <div class="action-buttons">
+            <a href="/" class="btn btn-primary">Go Home</a>
+            <button onclick="history.back()" class="btn btn-secondary">Go Back</button>
+        </div>
+
+        <div class="security-info">
+            <h4>💡 Security Information</h4>
+            <p>
+                If you believe this is an error, please contact the system administrator.
+                Error Code: <strong>FORBIDDEN_ACCESS_403</strong>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const buttons = document.querySelectorAll('.btn');
+
+            buttons.forEach(button => {
+                button.addEventListener('mouseenter', function () {
+                    this.style.transform = 'translateY(-2px)';
+                });
+
+                button.addEventListener('mouseleave', function () {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+
+            console.log('%c🚫 403 Forbidden Error', 'color: #ff4757; font-size: 16px; font-weight: bold;');
+            console.log('Access to this resource is not allowed for your user role.');
+        });
+    </script>
+</body>
+
+</html>

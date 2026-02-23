@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سیستم بیمارستانی - ثبت‌نام</title>
+    <link rel="stylesheet" href="/styles/register.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- هدر -->
+        <div class="header">
+            <h1>سیستم مدیریت بیمارستانی</h1>
+            <p>برای استفاده از خدمات، لطفا ثبت‌نام کنید</p>
+        </div>
+
+        <!-- انتخاب نوع کاربر -->
+        <div class="user-type-selector">
+            <div class="user-type nurse active" data-type="nurse">
+                👨‍⚕️ پرستار
+            </div>
+            <div class="user-type patient" data-type="patient">
+                👤 بیمار
+            </div>
+        </div>
+
+        <!-- محتوای فرم -->
+        <div class="content-area">
+            <!-- فرم پرستار -->
+            <div id="nurseForm" class="form-content">
+                <div class="form-section">
+                    <h3>اطلاعات پرستار</h3>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="nurseFirstName" class="required">نام</label>
+                            <input type="text" id="nurseFirstName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="nurseLastName" class="required">نام خانوادگی</label>
+                            <input type="text" id="nurseLastName" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="nursePhone" class="required">شماره تلفن</label>
+                            <input type="tel" id="nursePhone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="nursePassword" class="required">رمز عبور</label>
+                            <input type="password" id="nursePassword" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="nurseBirthday">تاریخ تولد</label>
+                            <input type="date" id="nurseBirthday">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- فرم بیمار -->
+            <div id="patientForm" class="form-content" style="display: none;">
+                <div class="form-section">
+                    <h3>اطلاعات بیمار</h3>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="patientFirstName" class="required">نام</label>
+                            <input type="text" id="patientFirstName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="patientLastName" class="required">نام خانوادگی</label>
+                            <input type="text" id="patientLastName" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="patientPhone" class="required">شماره تلفن</label>
+                            <input type="tel" id="patientPhone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="patientPassword" class="required">رمز عبور</label>
+                            <input type="password" id="patientPassword" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="patientBirthday" class="required">تاریخ تولد</label>
+                            <input type="date" id="patientBirthday" required>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- بخش دستگاه‌ها (فقط برای بیماران) -->
+                <div class="form-section devices-section">
+                    <h4>دستگاه‌ها</h4>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="patientRfid">RFID</label>
+                            <input type="text" id="patientRfid" readonly placeholder="RFID اسکن نشده">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="patientBle">BLE</label>
+                            <input type="text" id="patientBle" readonly placeholder="BLE اسکن نشده">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="patientFace">Face</label>
+                            <input type="text" id="patientFace" readonly placeholder="چهره شناخته نشده">
+                        </div>
+                    </div>
+                </div>
+                <!-- بخش پیش‌نمایش چهره -->
+                <!-- http://10.13.172.12/stream -->
+                <!-- <img id="camStream" src="http://192.168.254.7/stream" width="320">
+                <img id="previewImg" width="320">
+
+                <canvas id="captureCanvas" style="display:none"></canvas>
+                <button id="captureBtn">Capture & Send</button> -->
+
+
+
+
+            </div>
+
+            <!-- دکمه ثبت‌نام -->
+            <button class="btn btn-success btn-register" onclick="registerUser()" id="registerBtn">
+                ثبت‌نام پرستار
+            </button>
+
+            <!-- لینک تغییر -->
+            <div class="switch-link">
+                <p>حساب کاربری دارید؟ <a href="/">وارد شوید</a></p>
+            </div>
+        </div>
+    </div>
+    <div id="toast-container" class="toast-container"></div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/register.js"></script>
+
+</body>
+
+</html>

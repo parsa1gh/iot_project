@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/login.css">
+    <title>ورود به سامانه - پرستاران و بیماران</title>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>ورود به سامانه خدمات پزشکی</h1>
+            <p>لطفا برای دسترسی به خدمات وارد شوید</p>
+        </div>
+
+        <div class="login-card">
+            <div class="user-type-selector">
+                <div class="user-type nurse active" data-type="nurse">پرستار</div>
+                <div class="user-type nurse" data-type="admin">مدیر</div>
+            </div>
+
+            <form id="login-form">
+                <input type="hidden" id="userType" name="userType" value="nurse"> <!-- نوع کاربر -->
+                <!-- فیلدهای مشترک -->
+                <div class="form-group">
+                    <label for="identifier" class="required">شماره تلفن</label>
+                    <input type="text" id="identifier" name="identifier" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password" class="required">رمز عبور</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+
+                <div class="form-group remember-field">
+                    <label class="checkbox-label" for="remember">
+                        <input type="checkbox" id="remember" name="remember">
+                        مرا به خاطر بسپار
+                    </label>
+                </div>
+
+                <button type="button" class="btn submit">ورود به سیستم</button>
+
+            </form>
+
+            <div class="switch-form">
+                <p>حساب کاربری ندارید؟ <a href="/register">ثبت نام کنید</a></p>
+            </div>
+        </div>
+    </div>
+    <div id="toast-container" class="toast-container"></div>
+    <script src="/js/login.js"></script>
+
+</body>
+
+</html>

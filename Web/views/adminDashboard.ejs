@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>داشبورد ادمین</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles/adminDashboard.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            display: flex;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 220px;
+            background-color: #1f2937;
+            color: #fff;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .sidebar h2 {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+
+        .sidebar button {
+            margin-top: auto;
+            padding: 10px;
+            background-color: #dc2626;
+            border: none;
+            color: #fff;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+
+        .sidebar button:hover {
+            background-color: #b91c1c;
+        }
+
+        /* Main content */
+        .main-content {
+            flex: 1;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            margin-top: 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th,
+        td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f3f4f6;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 100;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            padding: 20px;
+            width: 400px;
+            border-radius: 8px;
+        }
+
+        .modal-content h2 {
+            margin-top: 0;
+        }
+
+        .form-group {
+            margin-bottom: 10px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 6px;
+            box-sizing: border-box;
+        }
+
+        .actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+        }
+
+        .actions button {
+            padding: 8px 12px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>ادمین پنل</h2>
+        <button onclick="logout()">خروج</button>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <h1>داشبورد ادمین</h1>
+
+        <!-- Stats -->
+        <div class="stats">
+            <div class="stat-card">
+                <div class="stat-number" id="totalNurses">0</div>
+                <div class="stat-label">تعداد پرستارها</div>
+            </div>
+        </div>
+
+        <!-- Nurses Table -->
+        <table>
+            <thead>
+                <tr>
+                    <th>نام پرستار</th>
+                    <th>شماره تماس</th>
+                    <th>عملیات</th>
+                </tr>
+            </thead>
+            <tbody id="nursesTable"></tbody>
+        </table>
+    </div>
+
+    <!-- Modals (ویرایش و بیماران) -->
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <h2>ویرایش پرستار</h2>
+            <div class="form-group">
+                <label>نام</label>
+                <input type="text" id="editFirstName">
+            </div>
+            <div class="form-group">
+                <label>نام خانوادگی</label>
+                <input type="text" id="editLastName">
+            </div>
+            <div class="form-group">
+                <label>شماره تماس</label>
+                <input type="text" id="editPhone">
+            </div>
+            <div class="form-group">
+                <label>تاریخ تولد</label>
+                <input type="date" id="editBirthday">
+            </div>
+            <div class="form-group">
+                <label>رمز عبور جدید (اختیاری)</label>
+                <input type="password" id="editPassword" placeholder="در صورت عدم تغییر خالی بگذارید">
+            </div>
+            <div class="actions">
+                <button onclick="closeEdit()">لغو</button>
+                <button onclick="saveEdit()">ذخیره</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="patientsModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>بیماران پرستار</h3>
+                <button class="close" onclick="closePatients()">×</button>
+            </div>
+            <ul id="patientsList"></ul>
+        </div>
+    </div>
+
+    <script src="/js/adminDashboard.js"></script>
+    <script>
+        async function logout() {
+            if (confirm("آیا از خروج اطمینان دارید؟")) {
+                await fetch("/admin", { method: "POST", credentials: "include" })
+                    .then(res => {
+                        if (res.ok) window.location.href = "/";
+                        else alert("خروج موفق نبود");
+                    });
+            }
+        }
+    </script>
+</body>
+
+</html>

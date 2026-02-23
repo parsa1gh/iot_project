@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <title>مدیریت بیماران | مرکز فرمان</title>
+  <link rel="stylesheet" href="/styles/managePatients.css" />
+</head>
+
+<body>
+  <div class="control-center">
+
+    <!-- Sidebar -->
+    <%- include("partials/_sidebar") %>
+
+    <main class="control-panel">
+
+      <header class="panel-header">
+        <h1>🧠 مرکز فرمان بیماران</h1>
+        <p>هر تصمیم، مستقیماً روی سلامت انسان اثر دارد</p>
+      </header>
+
+      <section class="system-status">
+        <div class="status-card">
+          <span class="status-value" id="totalPatients">0</span>
+          <span class="status-label">بیماران فعال</span>
+        </div>
+        <div class="status-card danger">
+          <span class="status-value" id="criticalCount">0</span>
+          <span class="status-label">وضعیت بحرانی</span>
+        </div>
+      </section>
+
+      <section class="patient-command">
+        <h2>📡 نودهای متصل</h2>
+
+        <table class="command-table">
+          <thead>
+            <tr>
+              <th>شناسه</th>
+              <th>نام بیمار</th>
+              <th>وضعیت</th>
+              <th>کنترل</th>
+            </tr>
+          </thead>
+          <tbody id="patientsTableBody">
+            <!-- JS injects -->
+          </tbody>
+        </table>
+      </section>
+
+    </main>
+  </div>
+
+  <script src="/js/managePatients.js"></script>
+</body>
+</html>
