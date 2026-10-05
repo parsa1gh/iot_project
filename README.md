@@ -4,7 +4,7 @@ An IoT system that helps nurses identify a patient and open their electronic rec
 
 > Associate degree project (Computer Engineering, Software), National University of Skills, Khorasan Razavi, 2025. Prototype, not tested with real patient data.
 
-![Demo](docs/demo.gif)<img width="960" height="1280" alt="photo_2026-10-05_11-23-11" src="https://github.com/user-attachments/assets/9832ed51-751d-4f48-b020-593b4f1d17a5" />
+![Demo](docs/demo.gif)
 
 
 ## Features
