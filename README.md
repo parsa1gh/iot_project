@@ -1,3 +1,4 @@
+
 # Smart Patient Finder (بیماریاب هوشمند)
 
 An IoT system that helps nurses identify a patient and open their electronic record quickly. A patient is identified by **RFID card**, **BLE tag (iTag)** or **face recognition**. An ESP32-CAM device does the scanning, a Node.js backend manages data and users, and a Python service turns face photos into embeddings.
@@ -5,7 +6,7 @@ An IoT system that helps nurses identify a patient and open their electronic rec
 > Associate degree project (Computer Engineering, Software), National University of Skills, Khorasan Razavi, 2025. Prototype, not tested with real patient data.
 
 ![Demo](docs/demo.gif)
-
+<img width="896" height="658" alt="photo_2026-10-05_11-23-11" src="https://github.com/user-attachments/assets/2f2ae714-9240-4be5-ae19-14737dac4c48" />
 
 ## Features
 - Three ways to identify a patient: RFID card (MFRC522), BLE iTag, face photo
@@ -89,13 +90,17 @@ JWT_secretKey=<your secret>
 ```bash
 node [entry file, e.g. app.js]
 ```
+Create the first admin user, then change its password immediately. Never commit credentials.
+
+### 3. Firmware
+Open `Hardware/` in VS Code with PlatformIO. Set your Wi-Fi credentials and server address in the firmware configuration (keep them out of Git), then upload to the ESP32-CAM.
 
 ## Screenshots
 | Login | Admin dashboard |
 |---|---|
-| ![](docs/login.png) | ![](docs/admin.png) |
+| ![](docs/login.png) <img width="2560" height="1600" alt="Screenshot (78)" src="https://github.com/user-attachments/assets/0f491753-03ae-46ed-af90-ed1f93305f7c" /> | ![](docs/admin.png) <img width="2560" height="1600" alt="Screenshot (79)" src="https://github.com/user-attachments/assets/8e1d942a-ca94-4035-9586-ba052021f6ea" /> |
 | **Nurse dashboard** | **Patient registration** |
-| ![](docs/nurse.png) | ![](docs/register.png) |
+| ![](docs/nurse.png) <img width="2560" height="1600" alt="Screenshot (82)" src="https://github.com/user-attachments/assets/54798dac-be9e-4922-a7ad-c0c153c38f7c" /> | ![](docs/register.png) |
 
 ## Limitations and Next Steps
 - Prototype: no formal accuracy or speed measurements yet
