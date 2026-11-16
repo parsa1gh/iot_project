@@ -1,5 +1,5 @@
 
-# Smart Patient Finder (بیماریاب هوشمند)
+# Smart Patient Tracker (بیماریاب هوشمند)
 
 An IoT system that helps nurses identify a patient and open their electronic record quickly. A patient is identified by **RFID card**, **BLE tag (iTag)** or **face recognition**. An ESP32-CAM device does the scanning, a Node.js backend manages data and users, and a Python service turns face photos into embeddings.
 
