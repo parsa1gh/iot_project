@@ -101,7 +101,8 @@ Open `Hardware/` in VS Code with PlatformIO. Set your Wi-Fi credentials and serv
 
 **Nurse dashboard**
 
-<img width="800" alt="Nurse dashboard" src="https://github.com/user-attachments/assets/54798dac-be9e-4922-a7ad-c0c153c38f7c" />
+<img width="1431" height="856" alt="Picture1" src="https://github.com/user-attachments/assets/d5b63fd0-fd90-4c1d-b374-bfdb967f273f" />
+
 
 ## Limitations and Next Steps
 - Prototype: no formal accuracy or speed measurements yet
